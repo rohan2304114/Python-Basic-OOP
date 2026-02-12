@@ -1,0 +1,125 @@
+Data - Just normal raw information 
+
+Information- Orgaized Data
+
+DataBase- It is a place to keep data . 
+* we can keep data
+* we can manage
+* we can retrive
+
+Types of Database -- 
+1. Rekational Database
+2.Non relational Database
+3.Graph Database
+4.Centralized Database
+5.Cloud Database
+6.Distributed Database
+
+
+Table ,Record ,Field ,Value---
+
+MySql - Relational Database System 
+
+
+DBMS - DataBase Management System - Data , User , Hardware , Software , Processing Unit 
+
+
+Advantages -- 
+ organized , keep , maintaince , manage, parallal accessing .
+
+
+RDBMS - Relational Database Management System
+
+
+Key , Primary Key ----
+
+Composit Primay Key.
+
+Relational , Foreign Key ---
+
+MySql - Relational DataBase 
+
+Foreign key - a primary key is another primary key 
+
+There are 3 kinds of Relation -
+
+1. One to One 
+2. One to Many 
+3. Many to Many 
+
+* One to One 
+
+
+* One to Many 
+
+
+* Many to Many
+
+
+__ Query-
+
+* Select Query -
+
+* Paremeter Query -
+
+*Crosstab Query -
+
+*Unmatched Query -
+
+*Action Query -
+         
+         * Make Table
+         * Append
+         * Update
+         * Delete
+
+
+
+
+Quel- Query Language
+
+Qbe- QueryBy Language
+
+
+SQL - Structured Query Language
+
+            DML - Data Manipulatiion Language
+
+              * select 
+              * insert
+              * Update
+              * delete
+
+            DDL - Data Definition Langauge
+
+            * create
+            * append
+            * drop
+
+            DCL - Data  Control Langauge
+
+            DTL - Data Transition Language
+
+Sql - is a langauage
+
+MySql - is relational Database - can use sql query
+         
+         * Numric Type- int , flaot, double, numeric, decimal
+             
+         * String Type-  char
+
+         * Date Time Type -
+
+         * Bollean Type -
+
+         * Bit Type -
+
+--Create , Insert , Update, Delete --
+
+* create- make Table
+
+*insert - existing table -> data entry
+
+*update - existing table -> existing data ->change
+
+* delete - table -> data -> delete
