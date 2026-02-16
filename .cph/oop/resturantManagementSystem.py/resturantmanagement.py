@@ -88,29 +88,37 @@ class Customer(User):
 
     def addToCart(self,restaurant,itemName):
         item=restaurant.menu.findItem(itemName)
-        if item:
-            self.cart.addItem(item)
-        else:
+        if not item:
             print("Item Not Found")
+            return
+
+        if item.quantity <= 0:
+            print("Item Out of Stock")
+            return
+
+        self.cart.addItem(item)
+        item.quantity -= 1
+        print(f"{item.name} added to cart")
 
     def viewCart(self):
         print("Name\tPrice\tQuantity")
-        for item,quantity in self.cart.items.items():
-            print(f"{item.name}\t{item.price}\t{quantity}")
+        for name,(price,qty) in self.cart.items.items():
+            print(f"{name}\t{price}\t{qty}")
         print("Total Price:", self.cart.totalPrice())
 
 class Order:
     def __init__(self):
-        self.items={}
+        self.items={}  # {name: (price, quantity)}
 
     def addItem(self,item):
-        if item in self.items:
-            self.items[item]+=1
+        if item.name in self.items:
+            price,qty=self.items[item.name]
+            self.items[item.name]=(price,qty+1)
         else:
-            self.items[item]=1
+            self.items[item.name]=(item.price,1)
 
     def totalPrice(self):
-        return sum(item.price*qty for item,qty in self.items.items())
+        return sum(price*qty for price,qty in self.items.values())
 
     def clear(self):
         self.items={}
@@ -123,9 +131,25 @@ emp=Employee("Nehal",49545459045,"nehal@gmail.com","Ctg",23,"CEO",377453)
 admin.addEmployee(rest,emp)
 admin.viewEmployee(rest)
 
-item1=FoodItem("Pizza",120,10)
-item2=FoodItem("Burger",120,40)
+item1=FoodItem("Pizza",120,2)
+item2=FoodItem("Burger",100,1)
+
 admin.addNewItem(rest,item1)
 admin.addNewItem(rest,item2)
 
-rest.menu.showMenu()
+customer=Customer("Alex",9999,"alex@gmail.com","Dhaka")
+
+customer.viewMenu(rest)
+customer.addToCart(rest,"Pizza")
+customer.addToCart(rest,"Pizza")
+customer.addToCart(rest,"Pizza")  # out of stock
+
+customer.viewCart()
+
+itemName = input('Enter Item Name')
+itemQuantity= int(input('Enter item Quantity'))
+customer.addToCart(rest,itemName,itemQuantity)
+customer.viewCart()
+
+
+
